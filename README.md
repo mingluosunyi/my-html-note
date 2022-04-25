@@ -2,4 +2,7 @@
 ## 多媒体与嵌入
 ### HTML中的图片
 #### 最简单的图片
+<code>
+<img src="./pics/1.png" alt="Apic">
+</code>
 <img src="./pics/1.png">
