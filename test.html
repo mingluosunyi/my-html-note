@@ -2,9 +2,114 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Iframe with basic details</title>
+  <title>School timetable</title>
+  <style>
+      html {
+          font-family: sans-serif;
+      }
+
+      table {
+          border-collapse: collapse;
+          border: 2px solid rgb(200,200,200);
+          letter-spacing: 1px;
+          font-size: 0.8rem;
+      }
+
+      td, th {
+          border: 1px solid rgb(190,190,190);
+          padding: 10px 20px;
+      }
+
+      td {
+          text-align: center;
+      }
+
+      caption {
+          padding: 10px;
+      }
+  </style>
 </head>
 <body>
+<h1>School timetable</h1>
+
+<table>
+  <colgroup>
+    <col>
+    <col>
+    <col style="background-color: #97DB9A">
+    <col style="width: 42px">
+    <col style="background-color: #97DB9A">
+    <col style="background-color:#DCC48E; border:4px solid #C1437A">
+    <col style="width: 42px">
+    <col style="width: 42px">
+  </colgroup>
+  <tr>
+    <td>&nbsp;</td>
+    <th>Mon</th>
+    <th>Tues</th>
+    <th>Wed</th>
+    <th>Thurs</th>
+    <th>Fri</th>
+    <th>Sat</th>
+    <th>Sun</th>
+  </tr>
+  <tr>
+    <th>1st period</th>
+    <td>English</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>German</td>
+    <td>Dutch</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>2nd period</th>
+    <td>English</td>
+    <td>English</td>
+    <td>&nbsp;</td>
+    <td>German</td>
+    <td>Dutch</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>3rd period</th>
+    <td>&nbsp;</td>
+    <td>German</td>
+    <td>&nbsp;</td>
+    <td>German</td>
+    <td>Dutch</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>4th period</th>
+    <td>&nbsp;</td>
+    <td>English</td>
+    <td>&nbsp;</td>
+    <td>English</td>
+    <td>Dutch</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<!-- 标准简单日期 -->
+<time datetime="2016-01-20">20 January 2016</time>
+<!-- 只包含年份和月份-->
+<time datetime="2016-01">January 2016</time>
+<!-- 只包含月份和日期 -->
+<time datetime="01-20">20 January</time>
+<!-- 只包含时间，小时和分钟数 -->
+<time datetime="19:30">19:30</time>
+<!-- 还可包含秒和毫秒 -->
+<time datetime="19:30:01.856">19:30:01.856</time>
+<!-- 日期和时间 -->
+<time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time>
+<!-- 含有时区偏移值的日期时间 -->
+<time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time>
+<!-- 调用特定的周 -->
+<time datetime="2016-W04">The fourth week of 2016</time>
 
 </body>
 </html>

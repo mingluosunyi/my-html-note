@@ -111,3 +111,104 @@ video的内容是视频的文字描述
 
 #### 为什么不用js或者css来做这些？
 当浏览器开始加载一个页面, 它会在主解析器开始加载和解析页面的 CSS 和 JavaScript 之前先下载 (预加载) 任意的图片。这是一个非常有用的技巧，平均下来减少了页面加载时间的20%。但是, 这对响应式图片一点帮助都没有, 所以需要类似 srcset的实现方法。因为你不能先加载好 <img> 元素后, 再用 JavaScript 检测可视窗口的宽度，如果觉得大小不合适，再动态地加载小的图片替换已经加载好的图片，这样的话, 原始的图像已经被加载了, 然后你又加载了小的图像, 这样的做法对于响应式图像的理念来说，是很糟糕的。
+
+
+## 表格
+### 表格基础
+#### th
+为了将表格的标题在视觉上和语义上都能被识别为标题，你可以使用 th 元素 ('th' 代表 'table header'). 用法和 td 是一样的，除了它表示为标题，不是普通的单元格以外。进入你的 HTML 文件, 将表格中应该是标题的 td 元素标记的内容，都改为用 th 元素标记。
+
+表格标题也有额外的好处，随着 scope 属性 (我们将在下一篇文章中了解到)，这个属性允许你让表格变得更加无障碍，每个标题与相同行或列中的所有数据相关联。屏幕阅读设备能一次读出一列或一行的数据，这是非常有帮助的。
+
+#### 允许单元格跨越多行和列
+表格中的标题和单元格有 colspan 和 rowspan 属性，这两个属性可以帮助我们实现这些效果。
+
+#### 为表格中的列提供共同的样式
+ col  元素被规定包含在  colgroup 容器中，而 colgroup 就在 table 标签的下方。
+```javascript
+<table>
+  <colgroup>
+    <col>
+    <col style="background-color: yellow">
+  </colgroup>
+  <tr>
+    <th>Data 1</th>
+    <th>Data 2</th>
+  </tr>
+  <tr>
+    <td>Calcutta</td>
+    <td>Orange</td>
+  </tr>
+  <tr>
+    <td>Robots</td>
+    <td>Jazz</td>
+  </tr>
+</table>  
+```
+对于第一列，我们没有采取任何样式，但是我们仍然需要添加一个空的 col 元素，如果不这样做，那么我们的样式就会应用到第一列上，这和我们预想的不一样。
+
+#### 使用caption为表格添加标题
+标题就放在 table 标签的下面。
+
+#### 使用thead，tbody和tfoot
+<em>tbody在html的顺序不影响渲染的结果。</em>
+
+#### 使用scope属性
+本篇文章的一个新话题是 scope 属性，可以添加在 *th* 元素中，表明这是列标题还是行标题
+```javascript
+<tr>
+  <th scope="row">Haircut</th>
+  <td>Hairdresser</td>
+  <td>12/09</td>
+  <td>Great idea</td>
+  <td>30</td>
+</tr>
+```
+scope 还有两个可选的值 ：colgroup 和 rowgroup
+这几个单元格都应该被标记为 ( th )，但是 "Clothes" 是一个位于顶部且定义了其他三个子标题的标题。 因此 "Clothes" 应该有一个 scope="colgroup"属性，而另外三个子标题应该有 scope="col"属性。
+
+## html基础
+### 网站框架
+![frame](./pics/截屏2022-04-29%20上午10.41.49.png)
+
+### 高级文字排版
+#### 描述列表
+dl,dt,dd
+#### 引用
+引用分为块引用和行内引用
+分别是blockquote和q标签，这两个标签都有cite属性。
+如果想要显示cite，需要加上a标签在其中嵌套cite标签
+```javascript
+<p>你好！欢迎访问我的激励网页！<a href="http://www.brainyquote.com/quotes/authors/c/confucius.html"><cite>孔子</cite></a>曰：</p>
+<blockquote cite="https://zh.wikipedia.org/zh-hans/孔子">
+  <p>譬如为山，未成一篑，止，吾止也。譬如平地，虽覆一篑，进，吾往也。</p>
+</blockquote>
+<p>要保持乐观，<q cite="http://www.affirmationsforpositivethinking.com/">不要说泄气的话</q>。（源自 <a href="http://www.affirmationsforpositivethinking.com/"><cite>Affirmations for Positive Thinking</cite></a>。）</p>
+```
+
+#### 缩略语
+abbr 和title属性用来表示一个缩略语和他的解释
+```javascript
+<p><abbr title="美国国家航空航天局（National Aeronautics and Space Administration）">NASA</abbr> 做了一些动人心弦的事情。</p>
+```
+#### 联系方式
+address
+
+#### 上下标
+sub，sup
+
+#### 计算机代码
+![code](./pics/截屏2022-04-29%20上午11.20.41.png)
+
+#### 日期
+将时间和日期标记为可供机器识别的格式
+```javascript
+<time datetime="2016-01-20">20 January 2016</time>
+```
+
+### 文本基础
+列表，strong，em。
+在没有更好办法的情况下b、i 或 u 来表达传统上的粗体、斜体或下划线。
+
+## 表单
+TODO
